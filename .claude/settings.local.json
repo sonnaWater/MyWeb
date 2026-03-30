@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:sonnawater.github.io)"
+      "WebFetch(domain:sonnawater.github.io)",
+      "WebFetch(domain:karpathy.ai)"
     ]
   }
 }
