@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications — Anson Hsu 徐振源</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+    a { color: #0645ad; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    hr { border: none; border-top: 1px solid #e0e0e0; margin: 32px 0; }
+
+    /* ── Nav ── */
+    nav {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 36px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a { color: #666; }
+    nav a:hover { color: #0645ad; text-decoration: none; }
+
+    .nav-left { display: flex; gap: 20px; }
+    .nav-right { display: flex; gap: 12px; align-items: center; }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 0.92rem;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Domain pill ── */
+    .domain-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .pill-cv   { background: #eef2fb; color: #2a5aaa; }
+    .pill-quant { background: #f0faf4; color: #1a7a4a; }
+
+    /* ── Category Accordion ── */
+    .cert-category {
+      margin-bottom: 28px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .cert-category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      cursor: pointer;
+      background: #fafafa;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 600;
+      gap: 12px;
+      transition: background 0.15s;
+    }
+    .cert-category-header:hover { background: #f4f4f4; }
+
+    .cert-category-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .cert-count {
+      font-size: 0.78rem;
+      color: #999;
+      margin-left: 4px;
+    }
+
+    .cert-toggle {
+      color: #bbb;
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .cert-category.open .cert-toggle { transform: rotate(180deg); }
+
+    /* ── Thumbnail Grid ── */
+    .cert-grid {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 16px;
+      background: #fff;
+    }
+    .cert-category.open .cert-grid { display: grid; }
+
+    .cert-card {
+      cursor: pointer;
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      overflow: hidden;
+      background: #f8f8f8;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cert-card:hover {
+      border-color: #0645ad;
+      box-shadow: 0 2px 8px rgba(6, 69, 173, 0.1);
+    }
+
+    .cert-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #efefef;
+    }
+
+    .cert-card-label {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+      color: #555;
+      line-height: 1.3;
+      border-top: 1px solid #f0f0f0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .cert-card-year {
+      font-size: 0.70rem;
+      color: #bbb;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+    }
+
+    #lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 4px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #lightbox-img {
+      max-width: 90vw;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      cursor: pointer;
+    }
+
+    #lightbox-title {
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+      width: 100%;
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      font-size: 1.4rem;
+      color: #999;
+      cursor: pointer;
+      line-height: 1;
+      width: 30px;
+      height: 30px;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    #lightbox-close:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.76rem;
+      color: #bbb;
+    }
+
+    /* ── Loading state ── */
+    .loading {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+    }
+
+    /* ── Error state ── */
+    .error {
+      padding: 20px;
+      background: #fef3f3;
+      border: 1px solid #f0c0c0;
+      border-radius: 4px;
+      color: #944;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 560px) {
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+      nav { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .nav-right { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">← home</a>
+    </div>
+    <div class="nav-right">
+      <span style="font-weight: 700; color: #0645ad;">EN</span>
+      <a href="certificates_zh.html">中文</a>
+    </div>
+  </nav>
+
+  <h1>Certifications</h1>
+  <p class="subtitle">19 professional certificates and awards spanning quantitative finance, AI/ML, and beyond.</p>
+
+  <hr>
+
+  <!-- ── Certificate Categories ── -->
+  <div id="cert-categories">
+    <div class="loading">Loading certificates...</div>
+  </div>
+
+  <!-- ── Lightbox ── -->
+  <div id="lightbox">
+    <div id="lightbox-backdrop"></div>
+    <div id="lightbox-content">
+      <button id="lightbox-close">×</button>
+      <img id="lightbox-img" src="" alt="Certificate">
+      <p id="lightbox-title"></p>
+    </div>
+  </div>
+
+  <footer>
+    Anson Hsu 徐振源 · Taipei, Taiwan · <a href="mailto:itvsdk3@gmail.com">itvsdk3@gmail.com</a>
+  </footer>
+
+  <script>
+    (async function() {
+      const LANG = 'en';
+      const container = document.getElementById('cert-categories');
+
+      // Helper: construct Google Drive URLs
+      const thumbURL = id =>
+        `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+      const viewURL = id =>
+        `https://drive.google.com/file/d/${id}/view`;
+
+      try {
+        // 1. Fetch certificates data
+        const res = await fetch('./certificates.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        container.innerHTML = '';
+
+        // 2. Render categories
+        data.categories.forEach((cat, catIdx) => {
+          const section = document.createElement('div');
+          section.className = 'cert-category';
+
+          const labelKey = LANG === 'zh' ? 'label_zh' : 'label_en';
+          const titleKey = LANG === 'zh' ? 'title_zh' : 'title_en';
+
+          // Header
+          const headerHTML = `
+            <button class="cert-category-header" aria-expanded="false">
+              <div class="cert-category-header-left">
+                ${cat.pill
+                  ? `<span class="domain-pill ${cat.pill}">${cat[labelKey]}</span>`
+                  : `<strong style="font-size:0.95rem;">${cat[labelKey]}</strong>`
+                }
+                <span class="cert-count">${cat.certs.length}</span>
+              </div>
+              <span class="cert-toggle">▾</span>
+            </button>
+          `;
+
+          // Grid
+          const gridHTML = `
+            <div class="cert-grid">
+              ${cat.certs.map(c => `
+                <div class="cert-card"
+                     data-id="${c.id}"
+                     data-title="${c[titleKey]}"
+                     data-issuer="${c.issuer}"
+                     data-year="${c.year}">
+                  <img src="${thumbURL(c.id)}"
+                       alt="${c[titleKey]}"
+                       loading="lazy"
+                       onerror="this.style.display='none'">
+                  <div class="cert-card-label">
+                    <span class="cert-card-year">${c.year} · ${c.issuer}</span>
+                    ${c[titleKey]}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+
+          section.innerHTML = headerHTML + gridHTML;
+          container.appendChild(section);
+        });
+
+        // 3. Accordion interaction
+        container.addEventListener('click', e => {
+          const header = e.target.closest('.cert-category-header');
+          if (header) {
+            const cat = header.closest('.cert-category');
+            const isOpen = cat.classList.toggle('open');
+            header.setAttribute('aria-expanded', isOpen);
+          }
+
+          // Lightbox trigger
+          const card = e.target.closest('.cert-card');
+          if (card) {
+            openLightbox(card.dataset);
+          }
+        });
+
+      } catch (err) {
+        container.innerHTML = `
+          <div class="error">
+            ⚠️ Error loading certificates: ${err.message}
+            <br><br>
+            Make sure <code>certificates.json</code> is in the same folder and contains valid data.
+          </div>
+        `;
+        console.error(err);
+      }
+
+      // 4. Lightbox functions
+      const lightbox = document.getElementById('lightbox');
+      const thumbURL = id => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+      const viewURL = id => `https://drive.google.com/file/d/${id}/view`;
+
+      function openLightbox(data) {
+        document.getElementById('lightbox-img').src = thumbURL(data.id);
+        document.getElementById('lightbox-img').dataset.fileId = data.id;
+        document.getElementById('lightbox-title').textContent =
+          `${data.year} · ${data.issuer} — ${data.title}`;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // Close handlers
+      document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+      document.getElementById('lightbox-backdrop').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      });
+
+      // Click image to open in Drive
+      document.getElementById('lightbox-img').addEventListener('click', () => {
+        const fileId = document.getElementById('lightbox-img').dataset.fileId;
+        if (fileId) window.open(viewURL(fileId), '_blank');
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

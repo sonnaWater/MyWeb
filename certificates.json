@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "id": "quant",
+      "label_en": "Quantitative Finance",
+      "label_zh": "量化金融",
+      "pill": "pill-quant",
+      "certs": [
+        {
+          "id": "REPLACE_WITH_FILE_ID_1",
+          "title_en": "WorldQuant BRAIN — Gold Level",
+          "title_zh": "WorldQuant BRAIN — 金牌級",
+          "issuer": "WorldQuant",
+          "year": "2025"
+        },
+        {
+          "id": "REPLACE_WITH_FILE_ID_2",
+          "title_en": "IQC 2025 — Stage-1 Top 20%",
+          "title_zh": "IQC 2025 — 階段1全球前20%",
+          "issuer": "Invesco QC",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label_en": "AI / Deep Learning",
+      "label_zh": "AI / 深度學習",
+      "pill": "pill-cv",
+      "certs": [
+        {
+          "id": "REPLACE_WITH_FILE_ID_3",
+          "title_en": "Fundamentals of Deep Learning",
+          "title_zh": "深度學習基礎",
+          "issuer": "NVIDIA DLI",
+          "year": "2024"
+        },
+        {
+          "id": "REPLACE_WITH_FILE_ID_4",
+          "title_en": "Transformer-based NLP Applications",
+          "title_zh": "Transformer基礎自然語言處理應用",
+          "issuer": "NVIDIA DLI",
+          "year": "2024"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "label_en": "Other Certificates & Awards",
+      "label_zh": "其他認證與獎狀",
+      "pill": "",
+      "certs": [
+        {
+          "id": "REPLACE_WITH_FILE_ID_5",
+          "title_en": "MIT Media Lab — [Course/Project]",
+          "title_zh": "MIT Media Lab — [課程/項目]",
+          "issuer": "MIT",
+          "year": "2017"
+        },
+        {
+          "id": "REPLACE_WITH_FILE_ID_6",
+          "title_en": "IBM BigData Platform",
+          "title_zh": "IBM BigData平台",
+          "issuer": "IBM",
+          "year": "2018"
+        }
+      ]
+    }
+  ]
+}
