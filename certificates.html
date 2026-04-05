@@ -54,6 +54,17 @@
       line-height: 1.5;
     }
 
+    .privacy-note {
+      margin: -10px 0 28px;
+      padding: 12px 14px;
+      border: 1px solid #e8edf5;
+      background: #f7faff;
+      border-radius: 4px;
+      color: #4d5b72;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
     /* ── Domain pill ── */
     .domain-pill {
       display: inline-block;
@@ -133,6 +144,7 @@
       transition: border-color 0.15s, box-shadow 0.15s;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
     .cert-card:hover {
       border-color: #0645ad;
@@ -145,6 +157,23 @@
       object-fit: cover;
       display: block;
       background: #efefef;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .cert-card::after,
+    #lightbox-content::after {
+      content: "Preview only";
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.72);
+      color: #fff;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      pointer-events: none;
     }
 
     .cert-card-label {
@@ -285,6 +314,7 @@
 
   <h1>Certifications</h1>
   <p class="subtitle">19 professional certificates and awards spanning quantitative finance, AI/ML, and beyond.</p>
+  <p class="privacy-note">Thumbnail previews are shown for verification only. Direct links to original certificate files are intentionally disabled on this public site to reduce personal-data exposure.</p>
 
   <hr>
 
@@ -314,9 +344,7 @@
 
       // Helper: construct Google Drive URLs
       const thumbURL = id =>
-        `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-      const viewURL = id =>
-        `https://drive.google.com/file/d/${id}/view`;
+        `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 
       try {
         // 1. Fetch certificates data
@@ -360,6 +388,8 @@
                   <img src="${thumbURL(c.id)}"
                        alt="${c[titleKey]}"
                        loading="lazy"
+                       referrerpolicy="no-referrer"
+                       draggable="false"
                        onerror="this.style.display='none'">
                   <div class="cert-card-label">
                     <span class="cert-card-year">${c.year} · ${c.issuer}</span>
@@ -403,8 +433,6 @@
 
       // 4. Lightbox functions
       const lightbox = document.getElementById('lightbox');
-      const thumbURL = id => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-      const viewURL = id => `https://drive.google.com/file/d/${id}/view`;
 
       function openLightbox(data) {
         document.getElementById('lightbox-img').src = thumbURL(data.id);
@@ -427,10 +455,11 @@
         if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
       });
 
-      // Click image to open in Drive
-      document.getElementById('lightbox-img').addEventListener('click', () => {
-        const fileId = document.getElementById('lightbox-img').dataset.fileId;
-        if (fileId) window.open(viewURL(fileId), '_blank');
+      // Basic friction against casual saving from the public page.
+      document.addEventListener('contextmenu', e => {
+        if (e.target.closest('.cert-card') || e.target.closest('#lightbox-content')) {
+          e.preventDefault();
+        }
       });
 
     })();
