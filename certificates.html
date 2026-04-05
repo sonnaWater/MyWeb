@@ -313,7 +313,7 @@
   </nav>
 
   <h1>Certifications</h1>
-  <p class="subtitle">19 professional certificates and awards spanning quantitative finance, AI/ML, and beyond.</p>
+  <p class="subtitle">18 professional certificates and awards spanning quantitative finance, AI/ML, and beyond.</p>
   <p class="privacy-note">Thumbnail previews are shown for verification only. Direct links to original certificate files are intentionally disabled on this public site to reduce personal-data exposure.</p>
 
   <hr>
@@ -341,10 +341,6 @@
     (async function() {
       const LANG = 'en';
       const container = document.getElementById('cert-categories');
-
-      // Helper: construct Google Drive URLs
-      const thumbURL = id =>
-        `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 
       try {
         // 1. Fetch certificates data
@@ -381,14 +377,13 @@
             <div class="cert-grid">
               ${cat.certs.map(c => `
                 <div class="cert-card"
-                     data-id="${c.id}"
+                     data-thumbnail="${c.thumbnail}"
                      data-title="${c[titleKey]}"
                      data-issuer="${c.issuer}"
                      data-year="${c.year}">
-                  <img src="${thumbURL(c.id)}"
+                  <img src="${c.thumbnail}"
                        alt="${c[titleKey]}"
                        loading="lazy"
-                       referrerpolicy="no-referrer"
                        draggable="false"
                        onerror="this.style.display='none'">
                   <div class="cert-card-label">
@@ -435,8 +430,7 @@
       const lightbox = document.getElementById('lightbox');
 
       function openLightbox(data) {
-        document.getElementById('lightbox-img').src = thumbURL(data.id);
-        document.getElementById('lightbox-img').dataset.fileId = data.id;
+        document.getElementById('lightbox-img').src = data.thumbnail;
         document.getElementById('lightbox-title').textContent =
           `${data.year} · ${data.issuer} — ${data.title}`;
         lightbox.classList.add('open');

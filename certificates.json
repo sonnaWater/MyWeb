@@ -7,21 +7,21 @@
       "pill": "pill-quant",
       "certs": [
         {
-          "id": "1BeQB4NgnIo3U7Cmun6jaXzbErUqD-6Su",
-          "title_en": "WorldQuant BRAIN — Gold Level",
-          "title_zh": "WorldQuant BRAIN — 金牌級",
+          "thumbnail": "./thumbs/certificates/worldquant-brain-gold.png",
+          "title_en": "WorldQuant BRAIN - Gold Level",
+          "title_zh": "WorldQuant BRAIN - 金牌級",
           "issuer": "WorldQuant",
           "year": "2025"
         },
         {
-          "id": "1XO6VFKPym61OLwSBqbgnCOiE7Dz8wKcE",
-          "title_en": "IQC 2025 — Stage-1 Top 20%",
-          "title_zh": "IQC 2025 — 階段1全球前20%",
+          "thumbnail": "./thumbs/certificates/iqc-2025-stage1-top20.png",
+          "title_en": "IQC 2025 - Stage-1 Top 20%",
+          "title_zh": "IQC 2025 - 階段1全球前20%",
           "issuer": "Invesco QC",
           "year": "2025"
         },
         {
-          "id": "1vvgwkyUDyjXo67b45bOj_GbmKd52v_4d",
+          "thumbnail": "./thumbs/certificates/google-gemini-api-certification.png",
           "title_en": "Google Gemini API Certification",
           "title_zh": "Google Gemini API 認證",
           "issuer": "Google",
@@ -36,37 +36,37 @@
       "pill": "pill-cv",
       "certs": [
         {
-          "id": "1uywn-f9KqNAKWr-5bvTmUJXMWjzMw_eR",
+          "thumbnail": "./thumbs/certificates/nvidia-dli-fundamentals-deep-learning.png",
           "title_en": "Fundamentals of Deep Learning",
           "title_zh": "深度學習基礎",
           "issuer": "NVIDIA DLI",
           "year": "2024"
         },
         {
-          "id": "1w9vprK2r4jeTszJgE0C9EOa5a6R-fPmm",
+          "thumbnail": "./thumbs/certificates/nvidia-dli-transformer-nlp.png",
           "title_en": "Transformer-based NLP Applications",
           "title_zh": "Transformer基礎自然語言處理應用",
           "issuer": "NVIDIA DLI",
           "year": "2024"
         },
         {
-          "id": "1WMXGvidA59n8vcnBLO_wGi7jVV7BBw3e",
-          "title_en": "MIT Media Lab — Computational Creativity",
-          "title_zh": "MIT Media Lab — 計算創意",
+          "thumbnail": "./thumbs/certificates/mit-media-lab-computational-creativity.png",
+          "title_en": "MIT Media Lab - Computational Creativity",
+          "title_zh": "MIT Media Lab - 計算創意",
           "issuer": "MIT Media Lab",
           "year": "2017"
         },
         {
-          "id": "1D1ZyO2QfbUuatCeLskVid4XoPJVEV3FY",
+          "thumbnail": "./thumbs/certificates/ibm-bigdata-workshop.png",
           "title_en": "IBM BigData Workshop",
           "title_zh": "IBM BigData工作坊",
           "issuer": "IBM",
           "year": "2018"
         },
         {
-          "id": "1oCAufUbdyGKZoEfGHF-keaKjwOFj5enl",
-          "title_en": "ITRI Data Science Program — Advanced",
-          "title_zh": "工研院數據科學專班 — 進階班",
+          "thumbnail": "./thumbs/certificates/itri-data-science-advanced.png",
+          "title_en": "ITRI Data Science Program - Advanced",
+          "title_zh": "工研院數據科學專班 - 進階班",
           "issuer": "ITRI",
           "year": "2019"
         }
@@ -79,77 +79,70 @@
       "pill": "",
       "certs": [
         {
-          "id": "1cpf9WKG5uays9BC1_sSPsmvjBlZui59z",
+          "thumbnail": "./thumbs/certificates/ntu-cpp-programming-design.png",
           "title_en": "C++ Programming Design",
           "title_zh": "C++ 程式設計",
           "issuer": "National Taiwan University",
           "year": "2017"
         },
         {
-          "id": "11_CMev_AJIw1hmPMRHFx1PvaAbqxKDmF",
+          "thumbnail": "./thumbs/certificates/ntu-data-structures-advanced-cpp.png",
           "title_en": "Data Structures & Advanced C++",
           "title_zh": "資料結構與進階 C++ 程式設計",
           "issuer": "National Taiwan University",
           "year": "2017"
         },
         {
-          "id": "15uTwVsi528x2RPuREb8FHaDvAXCE_1Sn",
-          "title_en": "Embedded Systems Summer Camp — 2nd Place",
-          "title_zh": "聯傑國際嵌入式 SummerCamp — 第二名",
+          "thumbnail": "./thumbs/certificates/embedded-systems-summercamp-second-place.png",
+          "title_en": "Embedded Systems Summer Camp - 2nd Place",
+          "title_zh": "聯傑國際嵌入式 SummerCamp - 第二名",
           "issuer": "Lianjie International",
           "year": "2014"
         },
         {
-          "id": "143tPAdj6WUvpJWLrJs6N2_3MqMYpW5vJ",
+          "thumbnail": "./thumbs/certificates/hadoop-systems-practice.png",
           "title_en": "Hadoop Systems & Practice",
           "title_zh": "Hadoop 系統與實務",
           "issuer": "National Taiwan University",
           "year": "2014"
         },
         {
-          "id": "1Wt1hnbySahgFH1wItH--Nj_zyP4G-vCu",
+          "thumbnail": "./thumbs/certificates/ieee-authorship-workshop.png",
           "title_en": "IEEE Authorship Workshop with IEEE Fellows",
           "title_zh": "IEEE 論文寫作工作坊",
           "issuer": "IEEE",
           "year": "2025"
         },
         {
-          "id": "1rmQtJsBuigAGW-uHZejISU8EvjkaPppt",
+          "thumbnail": "./thumbs/certificates/ar-vr-application-development.png",
           "title_en": "AR & VR Application Development",
           "title_zh": "AR 與 VR 應用開發實務班",
           "issuer": "Professional Development Institute",
           "year": "2018"
         },
         {
-          "id": "1N6Xf4x2iyhY682GhbS88SAljA6u4xHcM",
+          "thumbnail": "./thumbs/certificates/ecommerce-platform-development.png",
           "title_en": "E-Commerce Platform Development",
           "title_zh": "電商平台開發實務班",
           "issuer": "Professional Development Institute",
           "year": "2019"
         },
         {
-          "id": "1FAH5rMmPRdMfJ9-mCQEh9dxVtDQxQGDU",
-          "title_en": "Deep Learning Project Poster — DLP 2020",
-          "title_zh": "深度學習項目海報 — DLP 2020",
+          "thumbnail": "./thumbs/certificates/dlp-2020-poster.png",
+          "title_en": "Deep Learning Project Poster - DLP 2020",
+          "title_zh": "深度學習項目海報 - DLP 2020",
           "issuer": "Academic Conference",
           "year": "2020"
         },
         {
-          "id": "1ZCEF0aW3MDdBCi-DFY4mQmEwIkPMhM_I",
-          "title_en": "Military Service Discharge Certificate",
-          "title_zh": "預官退伍令",
-          "issuer": "ROC Military",
-          "year": "2020"
-        },
-        {
-          "id": "14j_PLmr5Do_VkY46msL3RiehIosqG_aa",
+          "thumbnail": "./thumbs/certificates/quality-workshop-2018.png",
           "title_en": "2018 Quality Workshop",
           "title_zh": "2018品質工作坊",
           "issuer": "Workshop",
           "year": "2018"
         },
         {
-          "id": "1RJkDoZXeoWATeYUSPsfQLCwGi7I2k8gf",
+          "thumbnail": "./thumbs/certificates/professional-achievement-award.png",
           "title_en": "Professional Achievement Award",
           "title_zh": "專業成就獎",
           "issuer": "Professional Association",

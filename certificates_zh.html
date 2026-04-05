@@ -313,8 +313,8 @@
   </nav>
 
   <h1>認證與獎項</h1>
-  <p class="subtitle">19份專業認證與獎狀，跨越量化金融、AI/ML及更多領域。</p>
-  <p class="privacy-note">此頁僅提供證照縮圖與預覽，公開網站已刻意停用原始檔案直連，以降低個資外洩與任意下載風險。</p>
+  <p class="subtitle">18份專業認證與獎狀，跨越量化金融、AI/ML及更多領域。</p>
+  <p class="privacy-note">此頁僅提供站內本地縮圖與預覽，不提供原始證照檔案直連，以降低個資外洩與任意下載風險。</p>
 
   <hr>
 
@@ -341,10 +341,6 @@
     (async function() {
       const LANG = 'zh';
       const container = document.getElementById('cert-categories');
-
-      // Helper: construct Google Drive URLs
-      const thumbURL = id =>
-        `https://drive.google.com/thumbnail?id=${id}&sz=w640`;
 
       try {
         // 1. Fetch certificates data
@@ -381,14 +377,13 @@
             <div class="cert-grid">
               ${cat.certs.map(c => `
                 <div class="cert-card"
-                     data-id="${c.id}"
+                     data-thumbnail="${c.thumbnail}"
                      data-title="${c[titleKey]}"
                      data-issuer="${c.issuer}"
                      data-year="${c.year}">
-                  <img src="${thumbURL(c.id)}"
+                  <img src="${c.thumbnail}"
                        alt="${c[titleKey]}"
                        loading="lazy"
-                       referrerpolicy="no-referrer"
                        draggable="false"
                        onerror="this.style.display='none'">
                   <div class="cert-card-label">
@@ -434,8 +429,7 @@
       // 4. Lightbox functions
       const lightbox = document.getElementById('lightbox');
       function openLightbox(data) {
-        document.getElementById('lightbox-img').src = thumbURL(data.id);
-        document.getElementById('lightbox-img').dataset.fileId = data.id;
+        document.getElementById('lightbox-img').src = data.thumbnail;
         document.getElementById('lightbox-title').textContent =
           `${data.year} · ${data.issuer} — ${data.title}`;
         lightbox.classList.add('open');

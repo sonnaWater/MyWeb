@@ -272,6 +272,67 @@
     .cert-row:last-child { border-bottom: none; }
     .cert-year { color: #bbb; font-size: 0.78rem; min-width: 36px; }
 
+    .cert-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 10px 0 16px;
+    }
+
+    .cert-preview-card {
+      display: block;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #fafafa;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .cert-preview-card:hover {
+      border-color: #0645ad;
+      text-decoration: none;
+    }
+
+    .cert-preview-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: #efefef;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .cert-preview-card::after {
+      content: "預覽";
+      position: absolute;
+      right: 8px;
+      bottom: 34px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(17, 17, 17, 0.72);
+      color: #fff;
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+
+    .cert-preview-caption {
+      padding: 6px 7px 7px;
+      font-size: 0.72rem;
+      color: #555;
+      line-height: 1.35;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .cert-preview-note {
+      color: #777;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      margin: 0 0 12px;
+    }
+
     /* ── Footer ── */
     footer { margin-top: 60px; font-size: 0.76rem; color: #bbb; }
 
@@ -280,6 +341,7 @@
       .entry { grid-template-columns: 1fr; }
       .logo-box { display: none; }
       .summary-grid { grid-template-columns: 1fr; }
+      .cert-preview-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -516,6 +578,25 @@
   <!-- ── Certifications ── -->
   <section id="certs">
     <h2>認證與語言</h2>
+    <p class="cert-preview-note">首頁僅顯示站內本地縮圖預覽，不提供原始證照檔案直連。</p>
+    <div class="cert-preview-grid">
+      <a class="cert-preview-card" href="certificates_zh.html" aria-label="查看全部證照" oncontextmenu="return false;">
+        <img src="./thumbs/certificates/worldquant-brain-gold.png" alt="WorldQuant BRAIN - 金牌級" loading="lazy" draggable="false">
+        <div class="cert-preview-caption">WorldQuant BRAIN</div>
+      </a>
+      <a class="cert-preview-card" href="certificates_zh.html" aria-label="查看全部證照" oncontextmenu="return false;">
+        <img src="./thumbs/certificates/google-gemini-api-certification.png" alt="Google Gemini API 認證" loading="lazy" draggable="false">
+        <div class="cert-preview-caption">Google Gemini API</div>
+      </a>
+      <a class="cert-preview-card" href="certificates_zh.html" aria-label="查看全部證照" oncontextmenu="return false;">
+        <img src="./thumbs/certificates/nvidia-dli-fundamentals-deep-learning.png" alt="深度學習基礎" loading="lazy" draggable="false">
+        <div class="cert-preview-caption">NVIDIA DLI</div>
+      </a>
+      <a class="cert-preview-card" href="certificates_zh.html" aria-label="查看全部證照" oncontextmenu="return false;">
+        <img src="./thumbs/certificates/ntu-cpp-programming-design.png" alt="C++ 程式設計" loading="lazy" draggable="false">
+        <div class="cert-preview-caption">台大 C++</div>
+      </a>
+    </div>
     <div class="cert-row"><span class="cert-year">2025</span>WorldQuant BRAIN — 金牌級</div>
     <div class="cert-row"><span class="cert-year">2024</span>NVIDIA DLI — Transformer基礎自然語言處理應用</div>
     <div class="cert-row"><span class="cert-year">2024</span>NVIDIA DLI — 深度學習基礎</div>
@@ -523,7 +604,7 @@
     <div class="cert-row"><span class="cert-year">—</span>台灣大學進階C++</div>
     <div class="cert-row"><span class="cert-year">Lang</span>中文（母語） · 英文 (中級 — TOEIC 605)</div>
     <div style="margin-top: 14px; font-size: 0.85rem;">
-      <a href="certificates_zh.html">查看全部 19 份證照 →</a>
+      <a href="certificates_zh.html">查看全部 18 份證照 →</a>
     </div>
   </section>
 
