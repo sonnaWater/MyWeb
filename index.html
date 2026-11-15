@@ -390,7 +390,7 @@
       </div>
       <div class="summary-col">
         <span class="domain-pill pill-quant">Quant</span>
-        <p>Quant researcher specializing in DRL-driven trading agents, alpha factor research, and backtesting on US equities. Designed risk-aware rewards (Sharpe-thresholded &amp; drawdown-aware). WorldQuant Gold Level; IQC 2025 Stage-1 Top 20%.</p>
+        <p>Quant researcher specializing in DRL-driven trading agents, alpha factor research, and backtesting on US equities. Designed a novel Sharpe-based, risk-sensitive reward for DRL agents. WorldQuant Gold Level; IQC 2025 Stage-1 Top 20%.</p>
       </div>
     </div>
   </section>
@@ -418,7 +418,7 @@
     <span class="domain-pill pill-quant">Quant</span>
     <div class="skill-row">
       <span class="skill-cat">Alpha/Backtest</span>
-      <span class="skill-items">Alpha factors · Portfolio construction · pandas/NumPy/statsmodels · pyfolio/empyrical · custom backtester · costs/slippage · turnover &amp; position limits</span>
+      <span class="skill-items">Alpha factors · Portfolio construction · pandas/NumPy/statsmodels · QuantStats · custom Gym trading environment &amp; backtesting · transaction costs</span>
     </div>
     <div class="skill-row">
       <span class="skill-cat">RL / ML</span>
@@ -472,7 +472,7 @@
         <h3>Information Engineer</h3>
         <div class="entry-meta">AUO · Hsinchu · May 2018 – Feb 2020</div>
         <ul>
-          <li>Fine-tuned BERT for large-scale text classification; +15% accuracy. Integrated ML into ASP.NET MVC, reducing dev cycles 5%.</li>
+          <li>Fine-tuned BERT for large-scale text classification; +15% accuracy. Integrated ML services into an existing ASP.NET MVC system.</li>
           <li>Built Scrapy/Selenium pipelines scraping MOPS; applied time-series clustering for backlight waveform analytics.</li>
         </ul>
       </div>
@@ -485,7 +485,6 @@
         <div class="entry-meta">OSENSE · Taipei · Aug – Nov 2017</div>
         <ul>
           <li>Built CNN hand gesture recognition from scratch — 92% accuracy; YOLO-v2 object detection +35% precision.</li>
-          <li>Reduced computational complexity 3% via architectural optimization.</li>
         </ul>
       </div>
     </div>
@@ -552,7 +551,7 @@
     <div class="project">
       <h3>Risk-aware DRL Portfolio Agent</h3>
       <div class="project-badge">US equities · adjusted daily OHLCV · 2009–2025 · DJIA constituents</div>
-      <p>Proposed dynamic Sharpe threshold τ<sub>SR</sub> and drawdown-sensitive rewards; grid search + sensitivity analysis for robust hyper-parameters. Backtests included commission 5 bps/trade + 1 tick slippage.</p>
+      <p>Designed a novel risk-sensitive reward integrating the Sharpe ratio into reward shaping, with systematic hyper-parameter sensitivity analysis. Custom Gym trading environment with 0.1% transaction cost per buy/sell. Results shown: SAC with the risk-sensitive reward, COVID-period backtest (Jan 2020 – Dec 2022).</p>
       <div class="stats">
         <div class="stat"><strong>0.58</strong>Sharpe Ratio</div>
         <div class="stat"><strong>10.71%</strong>Ann. Return</div>
