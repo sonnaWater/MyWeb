@@ -69,6 +69,27 @@
           "title_zh": "工研院數據科學專班 - 進階班",
           "issuer": "ITRI",
           "year": "2019"
+        },
+        {
+          "thumbnail": "./thumbs/certificates/itri-edge-computing-ai-agent-vision-onprem-llm.png",
+          "title_en": "ITRI - Edge Computing to AI Agents: Vision Recognition & On-prem LLM",
+          "title_zh": "工研院 - 從邊緣運算到 AI Agent－影像辨識與地端大模型實戰班",
+          "issuer": "ITRI",
+          "year": "2026"
+        },
+        {
+          "thumbnail": "./thumbs/certificates/itri-enterprise-ai-knowledge-base-rag.png",
+          "title_en": "ITRI - Enterprise AI Knowledge Base & RAG Retrieval Applications",
+          "title_zh": "工研院 - 企業AI知識庫建置與RAG檢索應用實戰班",
+          "issuer": "ITRI",
+          "year": "2026"
+        },
+        {
+          "thumbnail": "./thumbs/certificates/itri-ai-smart-manufacturing-agent.png",
+          "title_en": "ITRI - AI-Driven Smart Manufacturing & Agent Applications",
+          "title_zh": "工研院 - AI驅動智慧製造與Agent應用實務班",
+          "issuer": "ITRI",
+          "year": "2026"
         }
       ]
     },
